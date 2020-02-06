@@ -1,0 +1,18 @@
+<h1>マイページ</h1>
+
+<table>
+	<tbody>
+		<tr>
+			<td><%= @user.name %></td>
+		</tr>
+		<tr>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr>
+			<td><%= attachment_image_tag(@user, :pro_image, :fill, 100, 100, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %></td>
+		</tr>
+	</tbody>
+</table>
+
+<%= link_to "登録情報の変更", edit_user_path(@user) %>
+

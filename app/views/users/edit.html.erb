@@ -1,0 +1,13 @@
+<h1>登録情報変更</h1>
+
+<%= form_for(@user) do |f| %>
+	<%= f.attachment_field :pro_image %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+
+	<%= f.submit "変更する" %>
+<% end %>

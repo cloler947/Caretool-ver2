@@ -1,0 +1,27 @@
+<h1>記事詳細</h1>
+
+<%= link_to @post.user.name, user_path(@post.user.id) %>がこの記事を作成しました。
+
+<%= @post.title %>
+<%= @post.body %>
+<%= attachment_image_tag @post, :image, :fill, 200, 200 %>
+
+<% if @post.user_id == current_user.id %>
+	<%= link_to "編集する", edit_post_path(@post) %>
+	<%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？'} %>
+<% end %>
+	
+
+
+<%= form_for [@post, @post_comment] do |f| %>
+	<%= f.text_area :comment %>
+	<%= f.submit "コメントする" %>
+<% end %>
+
+<h1>コメント一覧</h1>
+<% @post_comments.each do |comment| %>
+	<%= comment.id %>
+	<%= link_to comment.user.name, user_path(comment.user.id) %>
+	<%= comment.comment %>
+	<%= link_to "削除", post_post_comments_path(comment.id), method: :delete %>
+<% end %>

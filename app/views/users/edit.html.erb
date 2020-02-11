@@ -1,5 +1,7 @@
 <h1>登録情報変更</h1>
 
+<%= render "layouts/errors", obj: @user %>
+
 <%= form_for(@user) do |f| %>
 	<%= f.attachment_field :pro_image %>
 

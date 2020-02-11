@@ -1,5 +1,7 @@
 <h1>記事新規作成</h1>
 
+<%= render "layouts/errors" , obj: @post %>
+
 <%= form_for(@post) do |f| %>
 	<%= f.label :title %>
 	<%= f.text_field :title %>

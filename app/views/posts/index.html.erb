@@ -22,11 +22,21 @@
 			</td>
 
 			<td>
-				<i class="fas fa-heart"></i>
-				<i class="far fa-heart"></i>
+				<% if post.favorited_by?(current_user) %>
+					<%= link_to post_favorites_path(post), method: :delete do %>
+						<%= icon('fas', 'heart', class: 'favorite') %>
+					<% end %>
+					いいね数<%= post.favorites.count %>
+				<% else %>
+					<%= link_to post_favorites_path(post), method: :post do %>
+						<%= icon('far', 'heart', class: 'favorite') %>
+					<% end %>
+					いいね数<%= post.favorites.count %>
+				<% end %>
 			</td>
 		</tr>
 		<% end %>
+		<%= paginate @posts, class: "paginate" %>
 	</tbody>
 </table>
 

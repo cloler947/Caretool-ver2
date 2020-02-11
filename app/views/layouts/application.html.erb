@@ -10,9 +10,17 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <ul>
+    <header class="navbar-fixed-top">
+      <nav class="navbar navbar-default" style="background-color: #009933">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="search-form">
+            <%= search_form_for @search do |f| %>
+              <%= f.search_field :title_or_body_or_user_name_cont, placeholder: "キーワードを入力" %>
+
+              <%= f.submit "検索" %>
+            <% end %>
+          </li>
+
           <% if user_signed_in? %>
             <li>
               <%= link_to "トップページ", home_top_path %>

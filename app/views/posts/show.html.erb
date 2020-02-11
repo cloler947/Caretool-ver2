@@ -1,6 +1,11 @@
 <h1>記事詳細</h1>
 
-<%= link_to @post.user.name, user_path(@post.user.id) %>がこの記事を作成しました。
+<%= link_to user_path(@post.user.id) do %>
+	<%= attachment_image_tag(@post.user, :pro_image, :fill, 50, 50, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %>
+	<%= @post.user.name %>
+<% end %>
+がこの記事を作成しました
+
 
 <%= @post.title %>
 <%= @post.body %>

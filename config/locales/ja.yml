@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワードの確認
+
+      post:
+        title: タイトル
+        body: 本文

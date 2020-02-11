@@ -71,4 +71,11 @@ gem 'kaminari','~> 1.1.1'
 
 gem 'pry-byebug'
 
+gem 'font-awesome-sass', '~> 5.12.0'
 
+gem 'ransack'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+
+gem 'rails-i18n', '~> 5.1'

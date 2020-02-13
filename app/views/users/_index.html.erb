@@ -1,17 +1,24 @@
 
-
-<% users.each do |user| %>
-  <%= user.name %>
-  <%= attachment_image_tag(user, :pro_image, :fill, 100, 100, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %>
-
-  <!-- フォローボタン -->
-  <% if current_user != user %>
-    <% if current_user.following?(user) %>
-      <%= link_to 'フォローを外す', user_relationships_path(user.id), method: :delete %>
-    <% else %>
-      <%= link_to 'フォローする', user_relationships_path(user.id), method: :post %>
+<table>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td>
+            <%= link_to user_path(user) do %>
+              <%= attachment_image_tag(user, :pro_image, :fill, 100, 100, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %>
+              <%= user.name %>
+            <% end %>
+            <!-- フォローボタン -->
+            <% if current_user != user %>
+              <% if current_user.following?(user) %>
+                <%= link_to 'フォローを外す', user_relationships_path(user.id), method: :delete %>
+              <% else %>
+                <%= link_to 'フォローする', user_relationships_path(user.id), method: :post %>
+              <% end %>
+            <% end %>
+        </td>
+      </tr>
     <% end %>
-  <% end %>
-
-<% end %>
-<%= paginate users, class: "paginate" %>
+  </tbody>
+  <%= paginate users, class: "paginate" %>
+</table>

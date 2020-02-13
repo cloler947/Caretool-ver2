@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: "DESC").page(params[:page])
+    @users = @user.following_user.page(params[:page])
+    @followers = @user.follower_user.page(params[:page])
   end
 
   def edit

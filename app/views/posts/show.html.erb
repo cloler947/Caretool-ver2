@@ -1,44 +1,56 @@
-<h1>記事詳細</h1>
+<div class="row">
+	<div class="center-block">
+		<div class="col-xs-10 col-xs-offset-2">
+			<h1><%= @post.title %></h1>
 
-<%= link_to user_path(@post.user.id) do %>
-	<%= attachment_image_tag(@post.user, :pro_image, :fill, 50, 50, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %>
-	<%= @post.user.name %>
-<% end %>
-がこの記事を作成しました
+			<span class="post-user-info"><%= link_to user_path(@post.user.id) do %>
+				<%= attachment_image_tag(@post.user, :pro_image, :fill, 50, 50, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %>
+				<%= @post.user.name %>
+			<% end %>
+			さんがこの記事を作成しました<%= @post.created_at.strftime('%Y/%m/%d') %></span>
+
+			<main class="post-text">
+				<%= @post.body %><br>
+				<%= attachment_image_tag @post, :image, :fill, 200, 200 %>
+
+				<% if @post.user_id == current_user.id %>
+					<%= link_to "編集する", edit_post_path(@post) %>
+					<%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？'} %>
+				<% end %>
 
 
-<%= @post.title %>
-<%= @post.body %>
-<%= attachment_image_tag @post, :image, :fill, 200, 200 %>
+				<% if @post.favorited_by?(current_user) %>
+					<%= link_to post_favorites_path(@post), method: :delete do %>
+						<%= icon('fas', 'heart', class: 'favorite') %>
+					<% end %>
+					いいね数<%= @post.favorites.count %>
+				<% else %>
+					<%= link_to post_favorites_path(@post), method: :post do %>
+						<%= icon('far', 'heart', class: 'favorite') %>
+					<% end %>
+					<%= @post.favorites.count %>
+				<% end %>
+				
+			</main>
+			
+		
 
-<% if @post.user_id == current_user.id %>
-	<%= link_to "編集する", edit_post_path(@post) %>
-	<%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？'} %>
-<% end %>
 
-
-<% if @post.favorited_by?(current_user) %>
-	<%= link_to post_favorites_path(@post), method: :delete do %>
-		<%= icon('fas', 'heart', class: 'favorite') %>
+	<%= form_for [@post, @post_comment] do |f| %>
+		<%= f.text_area :comment %>
+		<%= f.submit "コメントする" %>
 	<% end %>
-	いいね数<%= @post.favorites.count %>
-<% else %>
-	<%= link_to post_favorites_path(@post), method: :post do %>
-		<%= icon('far', 'heart', class: 'favorite') %>
+
+	<h1>コメント一覧</h1>
+	<% @post_comments.each do |comment| %>
+		<%= comment.id %>
+		<%= link_to comment.user.name, user_path(comment.user.id) %>
+		<%= comment.comment %>
+		<%= link_to "削除", post_post_comments_path(comment.id), method: :delete %>
 	<% end %>
-	いいね数<%= @post.favorites.count %>
-<% end %>
+
+	</div>
+</div>
 
 
-<%= form_for [@post, @post_comment] do |f| %>
-	<%= f.text_area :comment %>
-	<%= f.submit "コメントする" %>
-<% end %>
-
-<h1>コメント一覧</h1>
-<% @post_comments.each do |comment| %>
-	<%= comment.id %>
-	<%= link_to comment.user.name, user_path(comment.user.id) %>
-	<%= comment.comment %>
-	<%= link_to "削除", post_post_comments_path(comment.id), method: :delete %>
-<% end %>
+</div>

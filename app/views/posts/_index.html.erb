@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table post-index">
   <tbody>
     <% posts.each do |post| %>
     <td>
@@ -15,5 +15,5 @@
     </td>
   </tbody>
   <% end %>
-  <%= paginate posts, class: "paginate" %>
 </table>
+<div class="text-center"><%= paginate posts, class: "paginate", theme: 'my_custom_theme' %></div>

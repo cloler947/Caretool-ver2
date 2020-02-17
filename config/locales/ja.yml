@@ -10,3 +10,9 @@ ja:
       post:
         title: タイトル
         body: 本文
+  views:
+    pagination:
+      first: "最初"
+      previous: "前へ"
+      next: "次へ"
+      last: "最後"

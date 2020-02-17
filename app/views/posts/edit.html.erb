@@ -1,15 +1,11 @@
-<h1>記事編集</h1>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
 
-<%= render "layouts/errors", obj: @post %>
+    <h1>記事編集</h1>
 
-<%= form_for(@post) do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
+    <%= render "layouts/errors", obj: @post %>
 
-	<%= f.label :body %>
-	<%= f.text_area :body %>
+    <%= render "posts/form", post: @post %>
 
-	<%= f.attachment_field :image %>
-
-	<%= f.submit "編集を保存する" %>
-<% end %>
+  </div>
+</div>

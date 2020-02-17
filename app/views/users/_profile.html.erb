@@ -17,8 +17,15 @@
       </tbody>
     </table>
     <% if current_user == user %>
+
       <%= icon('fas', 'cog') %>
       <%= link_to "登録情報の変更", edit_user_path(user) %>
+
+      <div class="posts-new-button">
+        <%= link_to new_post_path do %>
+          <button class="btn btn-info"><%= icon('fas', 'plus') %> 記事を作成する</button>
+        <% end %>
+      </div>
     <% end %>
 
     <!-- フォローボタン -->

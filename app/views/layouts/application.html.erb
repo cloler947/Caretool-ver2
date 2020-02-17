@@ -31,7 +31,7 @@
             <li>
               <%= link_to "記事一覧", posts_path %>
             </li>
-            <li>
+            <li class="header-padding">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </li>
           <% else %>
@@ -58,7 +58,9 @@
 
     <footer>
       <div class="container">
+        <div class="row">
           <span><%= link_to "トップページ", home_top_path %></span>
+        </div>
       </div>
     </footer>
   </body>

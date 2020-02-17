@@ -5,3 +5,41 @@
 .post-text {
   padding: 50px 0;
 }
+
+.comment-item {
+  width: 100%;
+}
+
+.comment-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.comment-head> :first-child {
+  margin-right: auto;
+}
+
+.comment-text {
+  word-wrap: break-word;
+  padding-top: 10px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.post-create-time {
+  text-align: right;
+}
+
+.image-label-help {
+  display: inline;
+  color: #808080;
+}
+
+.back-page {
+  margin: 30px 0;
+}

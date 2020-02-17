@@ -1,0 +1,20 @@
+<%= form_for(post) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control", rows: "6" %>
+  </div>
+
+  <div class="form-group">
+    <lablel>画像<span class="image-label-help">--任意</span></lablel>
+    <%= f.attachment_field :image %>
+  </div>
+
+  <%= f.submit "送信する" , class: "btn btn-primary" %>
+<% end %>
+
+<diV class="back-page"><%= link_to "戻る", :back %></diV>

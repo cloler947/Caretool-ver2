@@ -9,3 +9,19 @@
   width: 100%;
   height: 400px;
 }
+
+.ranking {
+  display: flex;
+  flex-direction: row;
+  height: 600px;
+  width: 100%;
+  background-color: #CCFFCC;
+}
+
+.rank-item {
+  background-color: white;
+  height: 400px;
+  width: 300px;
+  text-align: center;
+  margin: 5px;
+}

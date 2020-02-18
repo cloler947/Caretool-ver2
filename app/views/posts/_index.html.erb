@@ -1,17 +1,18 @@
-<table class="table post-index">
+<table class="table table-hover post-index">
   <tbody>
     <% posts.each do |post| %>
     <td>
-      <%= link_to user_path(post.user) do %>
-        <%= attachment_image_tag(post.user, :pro_image, :fill, 50, 50, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %>
-        <%= post.user.name %>
-      <% end %>
-      <span>が作成</span><br>
-
-      <span style="font-size: 30px;"><%= link_to post.title, post_path(post.id) %></span>
-      <%= post.created_at.strftime('%Y/%m/%d') %>
-      <span><%= icon('fas', 'heart') %><%= post.favorites.count %></span>
-      <span><%= icon('far', 'comment-dots')%><%= post.post_comments.count %></span>
+      <%= attachment_image_tag(post.user, :pro_image, :fill, 50, 50, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %>
+      <span style="font-size: 30px;"><%= link_to post.title, post_path(post.id) %></span> 
+      
+      <div class="posts-info">
+        <span style="float: left"><%= link_to post.user.name, user_path(post.user) %>が作成</span>
+        <div style="text-align: right">
+          <%= post.created_at.strftime('%Y/%m/%d') %>
+          <%= icon('fas', 'heart') %><%= post.favorites.count %>
+          <%= icon('far', 'comment-dots')%><%= post.post_comments.count %>
+        </div>
+      </div>
     </td>
   </tbody>
   <% end %>

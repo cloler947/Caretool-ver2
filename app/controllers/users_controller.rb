@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @posts = @user.posts.order(created_at: "DESC").page(params[:page])
     @users = @user.following_user.page(params[:page])
     @followers = @user.follower_user.page(params[:page])
+    @favorites = @user.favorited_posts.page(params[:page])
   end
 
   def edit

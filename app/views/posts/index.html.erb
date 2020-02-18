@@ -1,6 +1,9 @@
-<h1>記事一覧</h1>
+<div class="row">
+  <h1>記事一覧</h1>
 
-<%= link_to "記事を作成する", new_post_path %>
+  <div class="posts-new-button-index"><%= link_to "記事を作成する", new_post_path , class: "btn btn-info" %></div>
 
+  <%= render "posts/index", posts: @posts %>
 
- <%= render "posts/index", posts: @posts %>
+</div>
+

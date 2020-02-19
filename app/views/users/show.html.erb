@@ -1,37 +1,39 @@
-<div class="row">
+<div class="container">
+	<div class="row">
 
-<%= render "users/profile", user: @user %>
+	<%= render "users/profile", user: @user %>
 
-	<div class="col-md-7">
+		<div class="col-md-7">
 
-		<div class="wrap">
-			<ul class="nav nav-tabs nav-pills">
-				<li><a href="#users-posts" data-toggle="tab" class="active">記事</a></li>
-				<li><a href="#followings" data-toggle="tab">Follow</a></li>
-				<li><a href="#bookmark" data-toggle="tab">ブックマーク済み</a></li>
-			</ul>
-		</div>
+			<div class="wrap">
+				<ul class="nav nav-tabs nav-pills">
+					<li><a href="#users-posts" data-toggle="tab" class="active">記事</a></li>
+					<li><a href="#followings" data-toggle="tab">Follow</a></li>
+					<li><a href="#bookmark" data-toggle="tab">ブックマーク済み</a></li>
+				</ul>
+			</div>
 
-		<div class="tab-content">
-				<div id="users-posts" class="tab-pane active">
-					<%= render "posts/index", posts: @posts %>
-				</div>
-
-				<div id="followings" class="tab-pane">
-					<div>
-						<h3>フォロー中のユーザー</h3>
-						<%= render "users/index" , users: @users %>
+			<div class="tab-content">
+					<div id="users-posts" class="tab-pane active">
+						<%= render "posts/index", posts: @posts %>
 					</div>
-					<div>
-						<h3>フォロワー</h3>
-						<%= render "users/index", users: @followers %>
+
+					<div id="followings" class="tab-pane">
+						<div>
+							<h3>フォロー中のユーザー</h3>
+							<%= render "users/index" , users: @users %>
+						</div>
+						<div>
+							<h3>フォロワー</h3>
+							<%= render "users/index", users: @followers %>
+						</div>
 					</div>
-				</div>
 
-				<div id="bookmark" class="tab-pane">
-					<%= render "posts/index", posts: @favorites %>
-				</div>
+					<div id="bookmark" class="tab-pane">
+						<%= render "posts/index", posts: @favorites %>
+					</div>
 
+			</div>
 		</div>
 	</div>
 </div>

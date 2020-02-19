@@ -36,6 +36,15 @@ body {
   padding-bottom: 0;
 }
 
+.navbar-header > .hambargar {
+  background-color: none;
+}
+
+.navbar-header > .hambargar > .icon-bar {
+  background-color: white;
+}
+
+
 .clearfix::after {
   content: "";
   display: block;

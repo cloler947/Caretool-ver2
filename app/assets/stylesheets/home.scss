@@ -2,17 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.App-name {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  margin: auto;
+  font-size: 100px;
+  color: aliceblue;
+}
+
 .main-visual {
   background: image-url("AME19716055_TP_V.jpg");
   background-size: cover;
-  background-position: bottom center;
+  background-position: center;
   width: 100%;
   height: 400px;
+  position: relative;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .ranking {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   height: 600px;
   width: 100%;
   background-color: #CCFFCC;
@@ -24,4 +43,48 @@
   width: 300px;
   text-align: center;
   margin: 5px;
+}
+
+.ranking-num {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  background-color: orange;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rank-title {
+  margin: 10px 0;
+}
+
+.rank-info {
+  display: inline-block;
+  color: #808080;
+  padding: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .ranking {
+    flex-wrap: no-wrap;
+  }
+  .rank-item {
+    height: 400px;
+    width: 300px;
+  }
+
+  .rank-image > img {
+    width: 90%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .ranking {
+    flex-direction: column;
+    height: auto;
+  }
 }

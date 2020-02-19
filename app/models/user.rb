@@ -30,4 +30,8 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
+
+  # def active_for_authentication?
+  #   super && (self.deleted_at == false)
+  # end
 end

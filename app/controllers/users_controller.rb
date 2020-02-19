@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
 
   def show
   	@user = User.find(params[:id])
@@ -25,10 +27,21 @@ class UsersController < ApplicationController
   end
 
   def withdraw
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    unless @user.deleted_at.nil?
+      @user.destroy
+      flash[:notice] = "またのご利用をお待ちしております。"
+      reset_session
+      redirect_to root_path
+    end
   end
 
   private
   	def user_params
-  		params.require(:user).permit(:name, :email, :pro_image, :introduction)
+  		params.require(:user).permit(:name, :email, :pro_image, :introduction, :deleted_at)
   	end
 end

@@ -1,2 +1,4 @@
-<h1>Users#withdraw</h1>
-<p>Find me in app/views/users/withdraw.html.erb</p>
+<h1>退会確認</h1>
+<% if user_signed_in? && @user.id == current_user.id %>
+  <%= button_to "退会", user_path(current_user:{deleted_at: Time.now}), method: :put, "data-confirm" => "本当に退会しますか？" %>
+<% end %>

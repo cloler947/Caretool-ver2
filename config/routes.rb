@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root 'home#about'
   get 'home/top'
-  get 'users/withdraw'
   devise_for :users
 
-  resources :users, only: [:show,:edit,:update,:withdraw] do
+  resources :users, only: [:show,:edit,:update,:withdraw, :destroy] do
+    get :withdraw, on: :member
     resource :relationships, only: [:create,:destroy]
     get 'follows' => 'relationships#follower'
     get 'followers' => 'relationships#followed'

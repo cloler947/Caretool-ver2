@@ -1,1 +1,2 @@
-$("#post_comment_<%= @post.id %>").html("<%= j(render 'posts/comment', post_comments: @post_comments, post: @post ) %>");
+$("textarea").val("");
+$("#post_comment_<%= @post.id %>").html("<%= j(render 'posts/comment', post_comments: @post.post_comments, post: @post ) %>");

@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-sm-4">
     <div class="profile">
       <%= attachment_image_tag(user, :pro_image, :fill, 200, 200, fallback: "登録のピクトアイコン1.jpeg", size: "200x200") %>
     </div>
@@ -7,19 +7,21 @@
     <table class="table table-bordered">
       <tbody>
         <tr>
-          <td><label>ニックネーム</label></td>
-          <td><%= user.name %></td>
+          <td><label><%= user.name %></label></td>
         </tr>
         <tr>
-          <td><label>メールアドレス</label></td>
-          <td><%= user.email %></td>
+          <td><label><%= user.email %></label></td>
+        </tr>
+        <tr>
+          <td><%= user.introdution %></td>
         </tr>
       </tbody>
     </table>
     <% if current_user == user %>
-
-      <%= icon('fas', 'cog') %>
-      <%= link_to "登録情報の変更", edit_user_path(user) %>
+    
+      <%= link_to edit_user_path(user) do %>
+        <button class="btn btn-link"><%= icon('fas', 'cog') %>登録情報の変更</button>
+      <% end %>
 
       <%= link_to "退会する", withdraw_user_path(user), class: "btn btn-danger" %>
 
@@ -33,9 +35,13 @@
     <!-- フォローボタン -->
     <% if current_user != user %>
       <% if current_user.following?(user) %>
-        <%= link_to 'フォローを外す', user_relationships_path(user.id), method: :delete %>
+        <%= link_to user_relationships_path(user.id), method: :delete do %>
+          <button class="btn btn-default"><%= icon('fas', 'user-check') %>フォローを外す</button>
+        <% end %>
       <% else %>
-        <%= link_to 'フォローする', user_relationships_path(user.id), method: :post %>
+        <%= link_to user_relationships_path(user.id), method: :post do %>
+          <button class="btn btn-default"><%= icon('fas', 'user-plus') %>フォローする</button>
+        <% end %>
       <% end %>
     <% end %>
 

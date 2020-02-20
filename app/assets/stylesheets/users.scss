@@ -10,3 +10,15 @@
 .posts-new-button {
   padding: 30px 0;
 }
+
+.delete-action {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-button {
+  padding: 10px 15px;
+}

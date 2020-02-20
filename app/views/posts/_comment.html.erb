@@ -1,0 +1,17 @@
+<% post_comments.each do |comment| %>
+  <div class="comment-box" id="post_comment_<%= post.id %>">
+    <section class="comment-item">
+      <div class="comment-head">
+        <div>
+          <%= attachment_image_tag(comment.user, :pro_image, :fill, 50, 50, fallback: "登録のピクトアイコン1.jpeg", size: "50x50") %>
+          <%= link_to comment.user.name, user_path(comment.user.id) %>
+        </div>
+        <div><%= comment.created_at.strftime('%Y/%m/%d') %></div>
+      </div>
+      <div class="comment-text">
+        <p><%= comment.comment %></p>
+        <p><%= link_to "削除", post_post_comments_path(comment.id), method: :delete, data: { confirm: '本当に消しますか?'}, remote: true %></p>
+      </div>
+    </section>
+  </div>
+<% end %>

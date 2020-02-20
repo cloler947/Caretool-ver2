@@ -28,20 +28,21 @@ class UsersController < ApplicationController
 
   def withdraw
     @user = User.find(params[:id])
+    if current_user != @user
+      redirect_to user_path(current_user)
+    end
   end
 
   def destroy
     @user = User.find(params[:id])
-    unless @user.deleted_at.nil?
       @user.destroy
       flash[:notice] = "またのご利用をお待ちしております。"
       reset_session
       redirect_to root_path
-    end
   end
 
   private
   	def user_params
-  		params.require(:user).permit(:name, :email, :pro_image, :introduction, :deleted_at)
+  		params.require(:user).permit(:name, :email, :pro_image, :introdution)
   	end
 end

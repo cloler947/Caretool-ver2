@@ -4,6 +4,8 @@ ja:
       user:
         name: ニックネーム
         email: メールアドレス
+        introdution: 自己紹介
+        pro_image: プロフィール画像
         password: パスワード
         password_confirmation: パスワードの確認
 

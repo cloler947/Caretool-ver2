@@ -18,6 +18,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+  validates :introdution, length: {in: 3..50}, allow_blank: true
 
   def follow(user_id)
     follower.create(followed_id: user_id)
@@ -30,8 +31,4 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-
-  # def active_for_authentication?
-  #   super && (self.deleted_at == false)
-  # end
 end

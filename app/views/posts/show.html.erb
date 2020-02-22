@@ -19,11 +19,14 @@
 					<div class="post-image"><%= attachment_image_tag @post, :image, :fill, 200, 200 %></div>
 
 					<% if user_signed_in? && @post.user_id == current_user.id %>
-						<%= link_to "編集する", edit_post_path(@post) %>
-						<%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？'} %>
-					
-						<div class="post_favorite_<%= @post.id %>">
-							<%= render "posts/favorite", post: @post %>
+						<div class="post-edit-destroy">
+							<!-- お気に入りボタン -->
+							<div class="post_favorite_<%= @post.id %>">
+								<%= render "posts/favorite", post: @post %>
+							</div>
+							
+							<%= link_to "編集する", edit_post_path(@post), class: "btn btn-default" %>
+							<%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-link" %>
 						</div>
 					<% end %>
 				</main>
@@ -37,7 +40,11 @@
 							<%= f.submit "コメントする" , class: "btn btn-primary" %>
 						<% end %>
 					<% else %>
-						<div class="session-alert"><%= icon('fas', 'sign-in-alt') %>ログインしてコメントしましょう！</div>
+						<div class="session-alert">
+							<%= link_to "ログイン", new_user_session_path %>してコメントする
+							<div>会員登録がお済みでない方は<%= link_to "こちら", new_user_registration_path %></div>
+							
+						</div>
 					<% end %>
 				</div>
 				

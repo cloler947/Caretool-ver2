@@ -10,21 +10,11 @@
           <td><label><%= user.name %></label></td>
         </tr>
         <tr>
-          <td><label><%= user.email %></label></td>
-        </tr>
-        <tr>
           <td><%= user.introdution %></td>
         </tr>
       </tbody>
     </table>
     <% if current_user == user %>
-    
-      <%= link_to edit_user_path(user) do %>
-        <button class="btn btn-link"><%= icon('fas', 'cog') %>登録情報の変更</button>
-      <% end %>
-
-      <%= link_to "退会する", withdraw_user_path(user), class: "btn btn-danger" %>
-
       <div class="posts-new-button">
         <%= link_to new_post_path do %>
           <button class="btn btn-info"><%= icon('fas', 'plus') %> 記事を作成する</button>

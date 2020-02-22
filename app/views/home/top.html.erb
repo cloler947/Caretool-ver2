@@ -1,20 +1,33 @@
 
-
 <div class="clearfix">
   <div class="main-visual"><div class="App-name">Care tool</div></div>
 </div>
 
+<main>
+  <div class="link-box">
+    <div><%= link_to "このサイトについて", root_path %></div>
+    <div><%= link_to "退会する", withdraw_user_path(current_user) %></div>
+  </div>
 
-<h2 style="text-align: center;">いいねランキング</h2>
-<div class="ranking">
-    <% @posts.each.with_index(1) do |post, i| %>
-      <div class="rank-item">
-        <div class="ranking-num"><%= "#{i}位"%></div>
-        <div class="rank-image"><%= attachment_image_tag(post, :image, :fill, 250, 250, fallback: "写真のフリー素材11.jpeg", size: "250x250") %></div>
-        <div class="rank-title"><strong><%= link_to post.title , post_path(post.id) %></strong></div>
-        <div class="rank-info">作者<%= post.user.name %></div>
-        <div class="rank-info"><%= icon('far', 'comment-dots')%><%= post.post_comments.count %></div>
-        <div class="rank-info"><%= icon('fas', 'heart') %><%= post.favorites.count %></div>
+
+
+  <div class="ranking">
+    <div class="favorite-rank"><h2>いいねランキング</h2></div>
+    <div class="rank-box">
+      <% @posts.each.with_index(1) do |post, i| %>
+        <div class="rank-item
+        ">
+          <span class="ranking-num"><%= "#{i}位"%></span>
+          <div class="rank-image"><%= attachment_image_tag(post, :image, :fill, 250, 250, fallback: "写真のフリー素材11.jpeg", size: "250x250") %></div>
+            <span class="rank-title"><strong><%= link_to post.title , post_path(post.id) %></strong></span>
+              <span>作者<%= post.user.name %></span>
+          <div class="rank-info">
+              <span><%= icon('far', 'comment-dots')%><%= post.post_comments.count %></span>
+              <span><%= icon('fas', 'heart') %><%= post.favorites.count %></span>
+            </div>
+          </div>
+      <% end %>
       </div>
-    <% end %>
-</div>
+    </div>
+  </div>
+</main>

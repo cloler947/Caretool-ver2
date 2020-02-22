@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+  <caption>登録情報</caption>
+  <tbody>
+    <tr>
+      <td><%= user.name %></td>
+    </tr>
+    <tr>
+      <td><%= user.email %></td>
+    </tr>
+    <tr><td><%= user.introdution %></td></tr>
+    <tr>
+      <td>
+        <%= link_to edit_user_path(user) do %>
+          <button class="btn btn-link"><%= icon('fas', 'cog') %>登録情報の変更</button>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="user-delete-button">
+  <%= link_to "退会する", withdraw_user_path(user), class: "btn btn-danger" %>
+</div>

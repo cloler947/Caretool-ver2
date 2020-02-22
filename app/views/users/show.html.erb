@@ -9,7 +9,10 @@
 				<ul class="nav nav-tabs nav-pills">
 					<li><a href="#users-posts" data-toggle="tab" class="active">記事</a></li>
 					<li><a href="#followings" data-toggle="tab">Follow</a></li>
-					<li><a href="#bookmark" data-toggle="tab">ブックマーク済み</a></li>
+					<li><a href="#bookmark" data-toggle="tab">ブックマーク</a></li>
+					<% if @user == current_user %>
+						<li><a href="#setting" data-toggle="tab">設定</a></li>
+					<% end %>
 				</ul>
 			</div>
 
@@ -31,6 +34,10 @@
 
 					<div id="bookmark" class="tab-pane">
 						<%= render "posts/index", posts: @favorites %>
+					</div>
+
+					<div id="setting" class="tab-pane">
+						<%= render "users/settings", user: @user %>
 					</div>
 
 			</div>

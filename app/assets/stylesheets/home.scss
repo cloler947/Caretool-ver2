@@ -2,6 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#global {
+  background: image-url("AME19716055_TP_V.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 1600px;
+  height: 1066px;
+}
+
+.about-text {
+  background-color: rgba(0,0,0,0.6);
+  width: 50%;
+  height: 1066px;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.about-title {
+  font-size: 70px;
+  padding: 0 0 10px 0;
+}
+
 .App-name {
   display: inline-block;
   position: absolute;
@@ -21,15 +46,27 @@
   position: relative;
 }
 
+
 .clearfix::after {
   content: "";
   display: block;
   clear: both;
 }
 
+.link-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 40px;
+  flex-flow: no-wrap;
+  justify-content: center;
+  height: 300px;
+  background-color: #EEEEEE;
+}
+
 .ranking {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 600px;
@@ -37,7 +74,16 @@
   background-color: #CCFFCC;
 }
 
+.rank-box {
+  display: flex;
+  flex-direction: row;
+}
+
 .rank-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   height: 400px;
   width: 300px;
@@ -57,23 +103,15 @@
   justify-content: center;
 }
 
-.rank-title {
-  margin: 10px 0;
-}
-
-.rank-info {
-  display: inline-block;
-  color: #808080;
-  padding: 5px;
-}
 
 @media screen and (max-width: 768px) {
   .ranking {
-    flex-wrap: no-wrap;
+    height: auto;
   }
-  .rank-item {
-    height: 400px;
-    width: 300px;
+  .rank-box {
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
   }
 
   .rank-image > img {
@@ -89,5 +127,9 @@
   }
   .App-name {
     font-size: 55px;
+  }
+
+  .rank-item {
+    height: auto;
   }
 }

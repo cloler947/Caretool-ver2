@@ -18,17 +18,19 @@
 					<%= simple_format(@post.body) %><br>
 					<div class="post-image"><%= attachment_image_tag @post, :image, :fill, 200, 200 %></div>
 
-					<% if user_signed_in? && @post.user_id == current_user.id %>
 						<div class="post-edit-destroy">
 							<!-- お気に入りボタン -->
-							<div class="post_favorite_<%= @post.id %>">
-								<%= render "posts/favorite", post: @post %>
-							</div>
+							<% if user_signed_in? %>
+								<div class="post_favorite_<%= @post.id %>">
+									<%= render "posts/favorite", post: @post %>
+								</div>
+							<% end %>
 							
-							<%= link_to "編集する", edit_post_path(@post), class: "btn btn-default" %>
-							<%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-link" %>
+							<% if user_signed_in? && @post.user_id == current_user.id %>
+									<%= link_to "編集する", edit_post_path(@post), class: "btn btn-default" %>
+									<%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？'}, class: "btn btn-link" %>
+							<% end %>
 						</div>
-					<% end %>
 				</main>
 				
 				<div class="clearfix">

@@ -4,8 +4,12 @@ class FavoritesController < ApplicationController
 
   def create
   	@post = Post.find(params[:post_id])
-  	favorite = @post.favorites.new(user_id: current_user.id)
-  	favorite.save
+  	 if user_signed_in?
+      favorite = @post.favorites.new(user_id: current_user.id)
+  	  favorite.save
+    else
+      redierect_to new_user_session_path
+    end
   end
 
   def index
@@ -13,7 +17,11 @@ class FavoritesController < ApplicationController
 
   def destroy
   	@post = Post.find(params[:post_id])
-  	favorite = current_user.favorites.find_by(post_id: @post.id)
-  	favorite.destroy
+  	if user_signed_in?
+      favorite = current_user.favorites.find_by(post_id: @post.id)
+  	   favorite.destroy
+    else 
+      redeirect_to new_user_session_path
+    end
   end
 end

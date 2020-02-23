@@ -10,7 +10,9 @@
       </div>
       <div class="comment-text">
         <p><%= comment.comment %></p>
-        <p><%= link_to "削除", post_post_comments_path(comment.id), method: :delete, data: { confirm: '本当に消しますか?'}, remote: true %></p>
+        <% if current_user == comment.user %>
+          <p><%= link_to "削除", post_post_comments_path(comment.id), method: :delete, data: { confirm: '本当に消しますか?'}, remote: true %></p>
+        <% end %>
       </div>
     </section>
   </div>

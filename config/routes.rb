@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show,:edit,:update,:withdraw, :destroy] do
     get :withdraw, on: :member
     resource :relationships, only: [:create,:destroy]
-    get 'follows' => 'relationships#follower'
-    get 'followers' => 'relationships#followed'
   end
   resources :posts do
     resource :favorites, only: [:index,:create,:destroy]

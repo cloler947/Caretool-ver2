@@ -13,15 +13,20 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 
-$(function(){
-  $('.form-control').on('focus', 'input', function(){
-    $('footer').hide('footer')
-  });
-  $('.form-control').on('blur', 'input', function(){
-    $('footer').show();
-  });
-})
+var windowWidth = $(window).width();
+var windowSm = 425;
+
+if (windowWidth <= windowSm) {
+  $(document).ready(function(){
+    $('.form-control').on('focus', function(){
+      $('footer').fadeOut('footer');
+    });
+    $('.form-control').on('blur', function(){
+      $('footer').show();
+    });
+  })
+}
+

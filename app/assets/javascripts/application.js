@@ -18,10 +18,10 @@
 //= require bootstrap-sprockets
 
 $(function(){
-  $('.form-group').on('focus', 'input', function(){
-    $('.top_page_link').hide('.top_page_link')
+  $('.form-control').on('focus', 'input', function(){
+    $('footer').hide('footer')
   });
-  $('.form-group').on('blur', 'input', function(){
-    $('.top_page_link').show();
+  $('.form-control').on('blur', 'input', function(){
+    $('footer').show();
   });
 })

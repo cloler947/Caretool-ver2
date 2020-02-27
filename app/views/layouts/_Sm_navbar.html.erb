@@ -1,0 +1,47 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="Sm-navbar">
+      <ul class="Sm-nav-list">
+        <% if user_signed_in? %>
+          <li class="Sm-nav-list-item">
+            <%= link_to home_top_path do %>
+              <%= icon("fas", "home", class: 'Sm-nav-icon') %><br>
+              <span class="Sm-link-text">トップページ</span>
+            <% end %>
+          </li>
+          <li class="Sm-nav-list-item">
+            <%= link_to user_path(current_user) do %>
+              <%= icon("far", "user", class: 'Sm-nav-icon') %><br>
+              <span class="Sm-link-text">マイページ</span>
+            <% end %>
+          </li>
+          <li class="Sm-nav-list-item">
+            <%= link_to posts_path do %>
+              <%= icon("fas", "file-alt", class: 'Sm-nav-icon') %><br>
+              <span class="Sm-link-text">記事一覧</span>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="Sm-nav-list-item">
+            <%= link_to root_path do %>
+              <%= icon("fas", "globe-africa", class: 'Sm-nav-icon') %><br>
+              <span class="Sm-link-text">アバウト</span>
+            <% end %>
+          </li>
+          <li class="Sm-nav-list-item">
+            <%= link_to posts_path do %>
+              <%= icon("fas", "file-alt", class: 'Sm-nav-icon') %><br>
+              <span class="Sm-link-text">記事一覧</span>
+            <% end %>
+          </li>
+          <li class="Sm-nav-list-item">
+            <%= link_to new_user_registration_path do %>
+              <%= icon("fas", "user-plus", class: 'Sm-nav-icon') %><br>
+              <span class="Sm-link-text">会員登録</span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

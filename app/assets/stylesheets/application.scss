@@ -36,12 +36,33 @@ body {
   padding-bottom: 0;
 }
 
-.navbar-header > .hambargar {
-  background-color: none;
+.Sm-nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
 }
 
-.navbar-header > .hambargar > .icon-bar {
-  background-color: white;
+.Sm-nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.Sm-nav-icon {
+  font-size: 20px;
+  color: white;
+}
+
+.Sm-link-text {
+  font-size: 10px;
+  color: white;
+}
+
+.login-button {
+  display: inline-block;
+  position: absolute;
+  top: 7px;
+  right: 5px;
 }
 
 
@@ -68,7 +89,10 @@ body {
 }
 
 .search-form {
-  padding-top: 10px;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 5px;
 }
 
 footer {
@@ -80,7 +104,16 @@ footer {
   background-color: #009933;
 }
 
-footer > .container > .row > span > a {
+.footer-link {
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-link > span {
+  padding: 0 10px;
+}
+
+.footer-link > span > a {
   color: white;
 }
 
@@ -114,5 +147,15 @@ footer > .container > .row > span > a {
   footer {
     position: absolute;
     bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-inverse {
+    display: none;
+  }
+
+  .login-button {
+    display: none;
   }
 }

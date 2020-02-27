@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: "DESC").page(params[:page])
     @users = @user.following_user.page(params[:page])
     @followers = @user.follower_user.page(params[:page])
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-        redirect_to user_path(@user)
+      redirect_to user_path(@user)
     else
       render 'edit'
     end
@@ -35,14 +34,15 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-      @user.destroy
-      flash[:notice] = "またのご利用をお待ちしております。"
-      reset_session
-      redirect_to root_path
+    @user.destroy
+    flash[:notice] = "またのご利用をお待ちしております。"
+    reset_session
+    redirect_to root_path
   end
 
   private
-  	def user_params
-  		params.require(:user).permit(:name, :email, :pro_image, :introdution)
-  	end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :pro_image, :introdution)
+  end
 end

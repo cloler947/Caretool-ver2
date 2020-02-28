@@ -15,17 +15,21 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-var windowWidth = $(window).width();
-var windowSm = 425;
+$(document).ready(function(){
+  $('#page-top').hide();
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100){
+      $('#page-top').fadeIn();
+    } else {
+        $('#page-top').fadeOut();
+    }
+  });
+  $('#page-top a').on('click', function(){
+    $('body, html').animate({
+    scrollTop:0
+  }, 800);
+    return false;
+  });
+});
 
-if (windowWidth <= windowSm) {
-  $(document).ready(function(){
-    $('.form-control').on('focus', function(){
-      $('footer').fadeOut('footer');
-    });
-    $('.form-control').on('blur', function(){
-      $('footer').show();
-    });
-  })
-}
 

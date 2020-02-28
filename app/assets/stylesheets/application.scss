@@ -143,6 +143,20 @@ footer {
   margin: 30px 0;
 }
 
+#page-top {
+  position: fixed;
+  right: 10px;
+  bottom: 67px;
+}
+
+#page-top i {
+  width: 70px;
+  color: white;
+  background-color: #337ab7;
+  border-radius: 50%;
+  text-align: center;
+}
+
 @media screen and (max-width: 425px) {
   footer {
     position: absolute;

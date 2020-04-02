@@ -1,24 +1,27 @@
-# README
+# Caretool
+介護の悩み相談サイトです。<br>
+自分の悩みを投稿したり、経験をまとめることができます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
+### function
+* 悩み、経験をテキストで投稿(画像添付可)
+* 投稿したものにコメントが可能
+* 投稿を検索
+* 投稿をお気に入り登録
+* お気に入り登録された投稿をランキングで表示
 
-Things you may want to cover:
 
-* Ruby version
+##  App URL
 
-* System dependencies
+アプリケーション(https://caretool.work/)
 
-* Configuration
+## System dependencies
+ruby 2.5.7<br>
+Rails 5.2.4
 
-* Database creation
+## Usage
+`$ git clone https://github.com/cloler947/Caretool-ver2.git`
 
-* Database initialization
+## Author
+[cloler947](https://github.com/cloler947)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
